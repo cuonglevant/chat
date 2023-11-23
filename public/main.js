@@ -37,9 +37,9 @@ $(function () {
   const addParticipantsMessage = (data) => {
     let message = "";
     if (data.numUsers === 1) {
-      message += `there's 1 participant`;
+      message += `There's 1 participant`;
     } else {
-      message += `there are ${data.numUsers} participants`;
+      message += `There are ${data.numUsers} participants`;
     }
     log(message);
   };
@@ -233,7 +233,7 @@ $(function () {
   socket.on("login", (data) => {
     connected = true;
     // Display the welcome message
-    const message = "Welcome to Socket.IO Chat – ";
+    const message = "Welcome to a chat room!";
     log(message, {
       prepend: true,
     });
@@ -269,17 +269,17 @@ $(function () {
   });
 
   socket.on("disconnect", () => {
-    log("you have been disconnected");
+    log("You have been disconnected");
   });
 
   socket.on("reconnect", () => {
-    log("you have been reconnected");
+    log("You have been reconnected");
     if (username) {
       socket.emit("add user", username);
     }
   });
 
   socket.on("reconnect_error", () => {
-    log("attempt to reconnect has failed");
+    log("Attempt to reconnect has failed");
   });
 });
